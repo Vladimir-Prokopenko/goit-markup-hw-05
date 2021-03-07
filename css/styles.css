@@ -419,6 +419,7 @@ padding: 30px 32px;
 .portfolio-filter {
   display: flex;
   justify-content: center;
+  margin-bottom: 34px;
 }
 
 .prt-bm:hover,
@@ -454,15 +455,14 @@ padding: 30px 32px;
 .portfolio-list {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 34px;
-  margin-right: calc(-1 * var(--section-list-gap)) ;
-  margin-bottom: calc(-1 * var(--section-list-gap));
+  margin-top: calc(-1 * var(--section-list-gap)) ;
+  margin-left: calc(-1 * var(--section-list-gap));
 }
 
 .portfolio-element {
   flex-basis: calc(100% / 3 - var(--section-list-gap));
-  margin-right: var(--section-list-gap);
-  margin-bottom: var(--section-list-gap);
+  margin-top: var(--section-list-gap);
+  margin-left: var(--section-list-gap);
   background-color: var(--background-white);
 }
 
