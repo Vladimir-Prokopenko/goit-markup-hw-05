@@ -80,6 +80,27 @@ address {
   overflow: hidden;
 }
 
+.header-link {
+  position: relative;
+}
+
+.header-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #2196F3;
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity var(--time-duration) var(--timing-function);
+}
+
+.header-link.current::after {
+  opacity: 1;
+}
+
 .header-link.current {
   color: var(--accent-color);
 }
@@ -116,17 +137,20 @@ address {
   line-height: 1.19;
   letter-spacing: 0.03em;
   color: var(--dark-color-text);
+  transition: color var(--time-duration) var(--timing-function);
 }
 
 .header-logo-accent {
   color: var(--accent-color);
 }
 
-.header-logo:hover {
+.header-logo:hover,
+.header-logo:focus {
   color: var(--accent-color);
 }
 
-.header-logo:hover .header-logo-accent {
+.header-logo:hover .header-logo-accent,
+.header-logo:focus .header-logo-accent {
   color: var(--dark-color-text);
 }
 
@@ -138,14 +162,15 @@ address {
 }
 
 .header-link {
-  display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
+  display: flex;
+  align-items: center;
+  height: 100%;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--header-color);
+  transition: color var(--time-duration) var(--timing-function);
 }
 
 .header-link:hover,
@@ -155,24 +180,36 @@ address {
 
 .header-contacts {
   display: flex;
+  align-items: center;
   margin-left: auto;
-  gap: 50px;
+  gap: 30px;
 }
 
 .header-contacts-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--color-text);
+  height: 100%;
 }
 
-.header-contacts-item:hover,
-.header-contacts-item:focus {
+.header-contacts-link {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: 0.02em;
+  color: currentColor;
+  color: var(--color-text);
+  transition: color var(--time-duration) var(--timing-function);
+}
+
+.header-contacts-link:hover,
+.header-contacts-link:focus {
   color: var(--accent-color);
 }
 
 .svg-icon-mail {
   display: flex;
+  margin-right: 10px;
   width: 21px;
   height: 16px;
   object-fit: fill;
@@ -180,19 +217,9 @@ address {
 
 .svg-icon-phone {
   display: flex;
+  margin-right: 10px;
   width: 16px;
   height: 22px;
-}
-
-.header-contacts-link {
-  display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-  color: currentColor;
 }
 
 /* футер сайту вебстудия */
@@ -220,17 +247,20 @@ address {
   line-height: 1.19;
   letter-spacing: 0.03em;
   color: var(--light-color);
+  transition: color var(--time-duration) var(--timing-function);
 }
 
 .footer-logo-accent {
   color: var(--accent-color);
 }
 
-.footer-logo:hover {
+.footer-logo:hover,
+.footer-logo:focus {
   color: var(--accent-color);
 }
 
-.footer-logo:hover .footer-logo-accent {
+.footer-logo:hover .footer-logo-accent,
+.footer-logo:focus .footer-logo-accent {
   color: var(--light-color);
 }
 
@@ -279,6 +309,7 @@ address {
   color: var(--light-color);
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1);
+  transition: background-color var(--time-duration) var(--timing-function);
 }
 
 .footer-soc-link:hover,

@@ -40,14 +40,74 @@
   line-height: 1.88;
   letter-spacing: 0.06em;
   color: var(--light-color);
-  background: var(--accent-color);
+  background-color: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  transition: background-color var(--time-duration) var(--timing-function);
 }
 
 .hero-link-btn:hover,
 .hero-link-btn:focus {
-  background: #188ce8;
+  background-color: #188ce8;
+}
+
+.backdrop-hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: opacity var(--time-duration) var(--timing-function),
+    background-color var(--time-duration) var(--timing-function),
+    visibility var(--time-duration) var(--timing-function);
+}
+
+.backdrop-hero.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.backdrop-hero.is-hidden .modal-hero {
+  transform: translate(-50%, -50%) scale(0.1);
+  opacity: 0;
+}
+
+.modal-hero {
+  position: absolute;
+  width: 528px;
+  height: 581px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  padding: 40px;
+  background-color: var(--light-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  transition: transform var(--time-duration) var(--timing-function),
+    opacity var(--time-duration) var(--timing-function);
+}
+
+.modal-hero-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--light-color);
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-svg-close {
+  height: 18px;
+  color: currentColor;
 }
 
 /* секція наші переваги */
@@ -117,7 +177,28 @@
 }
 
 .work-item {
+  position: relative;
   flex-basis: calc((100% - 60px) / 3);
+}
+
+.work-item-overley {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 70px;
+  padding-top: 27px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.work-item-text {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.143;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-align: center;
+  color: #FFFFFF;
 }
 
 /* секція наша команда */
@@ -164,7 +245,7 @@
   background-size: cover;
   filter: grayscale(100%);
   opacity: 1;
-  transition: opacity 1000ms var(--timing-function);
+  transition: opacity var(--time-duration) var(--timing-function);
 }
 
 .team-item:nth-child(1)>.team-item-img:before {
@@ -227,6 +308,8 @@
   height: 44px;
   border-radius: 50%;
   color: #afb1b8;
+  transition: color var(--time-duration) var(--timing-function),
+    background-color var(--time-duration) var(--timing-function);
 }
 
 .team-soc-svg {
@@ -271,6 +354,8 @@
   color: #afb1b8;
   border: 1px solid #AFB1B8;
   border-radius: 4px;
+  transition: color var(--time-duration) var(--timing-function),
+    background-color var(--time-duration) var(--timing-function);
 }
 
 .clients-svg {
